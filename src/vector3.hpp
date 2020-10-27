@@ -107,7 +107,7 @@ std::istream& operator>>(std::istream& in,  vector3<T>& v);
 /* Canonical implementations */
 
 template <typename T>
-T distance(const vector3<T>& lv, const vector3<T>& rv) const
+T distance(const vector3<T>& lv, const vector3<T>& rv);
 
 template <typename T>
 T dot(const vector3<T>& lv, const vector3<T>& rv);              // Dot product
@@ -115,10 +115,11 @@ T dot(const vector3<T>& lv, const vector3<T>& rv);              // Dot product
 template <typename T>
 vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv);   // cross product
 
+/* ctors */
+
 template <typename T>
 vector3<T>::vector3() {}
 
-/* ctor */
 template <typename T>
 vector3<T>::vector3(T x_, T y_, T z_) 
 {
@@ -403,7 +404,7 @@ inline vector3<T> vector3<T>::normalize() const
 }
 
 template <typename T>
-inline T distance(const vector3<T>& lv, const vector3<T>& rv) const // Distance between two vectors
+inline T distance(const vector3<T>& lv, const vector3<T>& rv)	// Distance between two vectors
 {
     vector3<T> v;
     v = lv - rv;
@@ -417,7 +418,7 @@ inline T vector3<T>::distance(const vector3<T>& v) const        // Distance betw
 }
 
 template <typename T>
-inline T dot(const vector3<T>& lv, const vector3<T>& rv)        // External Dot product
+inline T dot(const vector3<T>& lv, const vector3<T>& rv)        // Canonical Dot product
 {
     return lv.x * rv.x + lv.y * rv.y + lv.z * rv.z;
 }
@@ -429,7 +430,7 @@ inline T vector3<T>::dot(const vector3<T>& v) const             // Dot product
 }
 
 template <typename T>
-inline vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv)  // Cross product
+inline vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv)  	// Canonical Cross product
 {
     vector3<T> v;
     v.x = lv.y * rv.z - lv.z * rv.y;

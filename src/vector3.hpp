@@ -74,7 +74,7 @@ struct vector3
     T           length_yz() const;
     void        normalize_this();       // Unit Vector
     vector3<T>  normalize() const;
-    T           distance_to(const vector3<T>& v) const; // Distance to another vector
+    T           distance(const vector3<T>& v) const;    // Distance to another vector
     T           dot(const vector3<T>& v) const;         // Dot product
     vector3<T>  cross(const vector3<T>& v) const;       // Cross product
     
@@ -399,7 +399,7 @@ inline vector3<T> vector3<T>::normalize() const
 }
 
 template <typename T>
-inline T vector3<T>::distance_to(const vector3<T>& v) const
+inline T vector3<T>::distance(const vector3<T>& v) const
 {
     return ((*this) - v).length();
 }
@@ -417,7 +417,7 @@ inline T vector3<T>::dot(const vector3<T>& v) const               // Dot product
 }
 
 template <typename T>
-inline vector3<T> cross_product(const vector3<T>& lv, const vector3<T>& rv)  // Cross product
+inline vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv)  // Cross product
 {
     vector3<T> v;
     v.x = lv.y * rv.z - lv.z * rv.y;

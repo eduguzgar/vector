@@ -105,6 +105,10 @@ template <typename T>
 std::istream& operator>>(std::istream& in,  vector3<T>& v);
 
 /* Canonical implementations */
+
+template <typename T>
+T distance(const vector3<T>& lv, const vector3<T>& rv) const
+
 template <typename T>
 T dot(const vector3<T>& lv, const vector3<T>& rv);              // Dot product
 
@@ -399,19 +403,27 @@ inline vector3<T> vector3<T>::normalize() const
 }
 
 template <typename T>
-inline T vector3<T>::distance(const vector3<T>& v) const
+inline T distance(const vector3<T>& lv, const vector3<T>& rv) const // Distance between two vectors
+{
+    vector3<T> v;
+    v = lv - rv;
+    return v.length();
+}
+
+template <typename T>
+inline T vector3<T>::distance(const vector3<T>& v) const        // Distance between two vectors
 {
     return ((*this) - v).length();
 }
 
 template <typename T>
-inline T dot(const vector3<T>& lv, const vector3<T>& rv)          // External Dot product
+inline T dot(const vector3<T>& lv, const vector3<T>& rv)        // External Dot product
 {
     return lv.x * rv.x + lv.y * rv.y + lv.z * rv.z;
 }
 
 template <typename T>
-inline T vector3<T>::dot(const vector3<T>& v) const               // Dot product
+inline T vector3<T>::dot(const vector3<T>& v) const             // Dot product
 {
     return x * v.x + y * v.y + z * v.z;
 }

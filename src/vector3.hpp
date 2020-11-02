@@ -414,7 +414,7 @@ inline T distance(const vector3<T>& lv, const vector3<T>& rv)	// Distance betwee
 template <typename T>
 inline T vector3<T>::distance(const vector3<T>& v) const        // Distance between two vectors
 {
-    return ((*this) - v).length();
+    return distance(*this, v);
 }
 
 template <typename T>
@@ -426,7 +426,7 @@ inline T dot(const vector3<T>& lv, const vector3<T>& rv)        // Canonical Dot
 template <typename T>
 inline T vector3<T>::dot(const vector3<T>& v) const             // Dot product
 {
-    return x * v.x + y * v.y + z * v.z;
+    return dot(*this, v);
 }
 
 template <typename T>
@@ -442,11 +442,7 @@ inline vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv)  	// Canonic
 template <typename T>
 inline vector3<T> vector3<T>::cross(const vector3<T>& v) const           // Cross product
 {
-    vector3<T> va;
-    va.x = y * v.z - z * v.y;
-    va.y = z * v.x - x * v.z;
-    va.z = x * v.y - y * v.x;
-    return va;
+    return cross(*this, v);
 }
 
 template <>
@@ -462,16 +458,16 @@ inline bool vector3<double>::is_perpendicular(const vector3<double>& v) const   
 }
 
 template <typename T>
-inline void vector3<T>::perpendicular_this(const vector3<T>& v)       // Make this vector perpendicular to itself
+inline void vector3<T>::perpendicular_this(const vector3<T>& v)		// Make this vector perpendicular to another vector
 {
-    (*this) = cross_product(*this, v);
+    (*this) = cross(*this, v);
 }
 
 template <typename T>
-inline vector3<T> vector3<T>::perpendicular(const vector3<T>& v)         // Perpendicular vector
+inline vector3<T> vector3<T>::perpendicular(const vector3<T>& v)	// Perpendicular vector
 {
     vector3<T> v_aux;
-    v_aux = cross_product(*this, v);
+    v_aux = cross(*this, v);
     return v_aux;
 }
 

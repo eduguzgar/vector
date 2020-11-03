@@ -358,7 +358,7 @@ inline T distance(const vector2<T>& lv, const vector2<T>& rv)	// Distance betwee
 template <typename T>
 inline T vector2<T>::distance(const vector2<T>& v) const        // Distance between two vectors
 {
-    return distance(*this, v);
+    return ::distance(*this, v);
 }
 
 template <typename T>
@@ -370,7 +370,7 @@ inline T dot(const vector2<T>& lv, const vector2<T>& rv)        // Canonical Dot
 template <typename T>
 inline T vector2<T>::dot(const vector2<T>& v) const             // Dot product
 {
-    return dot(*this, v);
+    return ::dot(*this, v);
 }
 
 template <>

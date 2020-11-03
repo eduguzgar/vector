@@ -414,7 +414,7 @@ inline T distance(const vector3<T>& lv, const vector3<T>& rv)	// Distance betwee
 template <typename T>
 inline T vector3<T>::distance(const vector3<T>& v) const        // Distance between two vectors
 {
-    return distance(*this, v);
+    return ::distance(*this, v);
 }
 
 template <typename T>
@@ -426,7 +426,7 @@ inline T dot(const vector3<T>& lv, const vector3<T>& rv)        // Canonical Dot
 template <typename T>
 inline T vector3<T>::dot(const vector3<T>& v) const             // Dot product
 {
-    return dot(*this, v);
+    return ::dot(*this, v);
 }
 
 template <typename T>
@@ -442,7 +442,7 @@ inline vector3<T> cross(const vector3<T>& lv, const vector3<T>& rv)  	// Canonic
 template <typename T>
 inline vector3<T> vector3<T>::cross(const vector3<T>& v) const           // Cross product
 {
-    return cross(*this, v);
+    return ::cross(*this, v);
 }
 
 template <>

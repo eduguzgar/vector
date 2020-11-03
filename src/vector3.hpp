@@ -460,14 +460,14 @@ inline bool vector3<double>::is_perpendicular(const vector3<double>& v) const   
 template <typename T>
 inline void vector3<T>::perpendicular_this(const vector3<T>& v)		// Make this vector perpendicular to another vector
 {
-    (*this) = cross(*this, v);
+    (*this) = ::cross(*this, v);
 }
 
 template <typename T>
 inline vector3<T> vector3<T>::perpendicular(const vector3<T>& v)	// Perpendicular vector
 {
     vector3<T> v_aux;
-    v_aux = cross(*this, v);
+    v_aux = ::cross(*this, v);
     return v_aux;
 }
 

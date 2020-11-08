@@ -6,6 +6,8 @@
 
 template <typename> struct vector3;
 
+// float template specialization
+
 template <>
 struct vector3<float>
 {

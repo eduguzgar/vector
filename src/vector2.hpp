@@ -4,9 +4,9 @@
 #include <cmath>
 #include <iostream>
 
-// float specialization
-
 template <typename> struct vector2;
+
+// float template specialization
 
 template <>
 struct vector2<float>

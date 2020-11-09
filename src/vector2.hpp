@@ -382,7 +382,7 @@ struct vector2<double>
 
     void zero();
     bool is_zero() const;
-    bool is_almost_zero(const double tolerance = 0.01f) const;
+    bool is_almost_zero(const double tolerance = 0.01) const;
     bool is_any_zero() const;
 
     /* Equality operators */
